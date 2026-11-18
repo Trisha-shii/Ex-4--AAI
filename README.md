@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>TRISHA PRIYADARSHNI PARIDA</H3>
+<H3>212224230293</H3>
 <H3>EX. NO.4</H3>
-<H3>DATE:</H3>
+<H3>DATE:10-11-2026</H3>
 <H1 ALIGN =CENTER> Implementation of Hidden Markov Model</H1>
 
 ## Aim: 
@@ -21,7 +21,9 @@ Step 8:Calculate the probability of the observed sequence by summing the last ro
 Step 9:Find the most likely sequence of hidden states by selecting the hidden state with the highest probability at each time step based on the alpha matrix.<br>
 
 ## Program:
-Insert your Program here
+```python
+
+```
 
 ## Output:
 Show your results here
