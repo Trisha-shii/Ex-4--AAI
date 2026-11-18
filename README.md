@@ -22,11 +22,37 @@ Step 9:Find the most likely sequence of hidden states by selecting the hidden st
 
 ## Program:
 ```python
-
+#EXPERIMENT-4:HMMs-Hidden Markov Models
+import numpy as np
+prior_probs=np.array([0.5,0.1,0.4])
+transition_probs=np.array([[0.5,0.3,0.2],[0.4,0.2,0.4],[0.0,0.3,0.7]])
+emission_probs=np.array([[0.1,0.9],[0.4,0.6],[0.8,0.2]])
+#0-->HAPPY
+#1-->SAD
+#transitionprobs-->0-->rainy,1-->cloudy,2--->sunny
+observationseq=[0,1,0,1]
+alpha=np.zeros((len(observationseq),len(prior_probs)))
+alpha[0,:]=prior_probs*emission_probs[:,observationseq[0]]
+for i in range(1,len(observationseq)):
+    for j in range(len(prior_probs)):
+        alpha[i,j]=emission_probs[j,observationseq[i]]*np.sum(alpha[i-1:]*transition_probs[:,j])
+print(alpha)
+max_likelihood_seq=[]
+for i in range(len(observationseq)):
+    t=np.argmax(alpha[i])
+    if t==0:
+        max_likelihood_seq.append("Rainy")
+    elif t==1:
+        max_likelihood_seq.append("Cloudy")
+    elif t==2:
+        max_likelihood_seq.append("Sunny")
+print(max_likelihood_seq)
+        
 ```
 
 ## Output:
-Show your results here
+<img width="233" height="70" alt="image" src="https://github.com/user-attachments/assets/f5036cd9-b815-4f44-890d-bf8de1883598" />
+
 
 ## Result:
 Thus Hidden Markov Model is implemented using python.
